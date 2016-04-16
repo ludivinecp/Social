@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160416145217) do
+ActiveRecord::Schema.define(version: 20160416153211) do
 
   create_table "friends", force: :cascade do |t|
-    t.string   "current_user"
+    t.string   "user_id"
     t.string   "new_friend"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
