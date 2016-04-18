@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   get 'users/:id' => 'users#show',  :as => :profil
   get 'users/index' => 'users#index'
   get 'users/edit' => 'users#edit'
+  get 'users/friendship' => 'users#friendship'
+  resources :friends
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

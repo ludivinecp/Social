@@ -1,8 +1,27 @@
 <h1>Mon profil</h1>
 
-<ul>
-  <%@users.each do |user|%>
-     <li> <%= user.try(:firstname)%> : <%= user.email%></li>
-  <%end%>
-</ul>
+  <h2>Mes amis</h2>
+
+
+  <ul>
+    <%@friendship.each do |friend|%>
+       <li> <%= User.find(friend.new_friend).try(:firstname)%> : <%= User.find(friend.new_friend).email%> (<%= link_to "remove", friend, :method => :delete %>)
+    <%end%>
+  </ul>
+
+
+  <h2>Tous les utilisateurs</h2>
+
+   <ul>
+    <%@users.each do |user|%>
+       <li> <%= user.try(:firstname)%>
+        <%= link_to "Add Friend", friends_path(:new_friend => user), :method => :post %>
+
+
+
+
+    <%end%>
+  </ul>
+
 <%= link_to 'Edit', users_edit_path(current_user.id) %> |
+

@@ -11,8 +11,10 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @users = User.all
+    @friendship = current_user.friends
+    @friend = Friend.new(friend_params)
+    end
 
-  end
 
   # GET /users/new
   def new
@@ -73,4 +75,9 @@ class UsersController < ApplicationController
     def user_params
       params.fetch(:user, {})
     end
+
+    def friend_params
+      params.fetch(:friend, {}).permit(:user_id, :new_friend)
+    end
+
 end
